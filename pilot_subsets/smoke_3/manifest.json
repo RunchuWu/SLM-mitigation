@@ -1,0 +1,60 @@
+{
+  "dataset_root": "./datasets",
+  "output_dir": "pilot_subsets/smoke_3",
+  "n_per_task": 3,
+  "seed": 42,
+  "tasks": [
+    {
+      "task": "Safety-tier2/Child_voice",
+      "status": "created",
+      "source_metadata_path": "datasets/Safety-tier2/Child_voice/metadata.jsonl",
+      "pilot_metadata_path": "pilot_subsets/smoke_3/Safety-tier2/Child_voice/metadata.jsonl",
+      "source_count": 400,
+      "pilot_count": 3,
+      "language_key": "language",
+      "language_counts": {
+        "EN": 2,
+        "ZH": 1
+      }
+    },
+    {
+      "task": "Safety-tier2/Impaired_capacity",
+      "status": "created",
+      "source_metadata_path": "datasets/Safety-tier2/Impaired_capacity/metadata.jsonl",
+      "pilot_metadata_path": "pilot_subsets/smoke_3/Safety-tier2/Impaired_capacity/metadata.jsonl",
+      "source_count": 293,
+      "pilot_count": 3,
+      "language_key": "language",
+      "language_counts": {
+        "EN": 2,
+        "ZH": 1
+      }
+    },
+    {
+      "task": "Safety-tier2/Child_presence",
+      "status": "created",
+      "source_metadata_path": "datasets/Safety-tier2/Child_presence/metadata.jsonl",
+      "pilot_metadata_path": "pilot_subsets/smoke_3/Safety-tier2/Child_presence/metadata.jsonl",
+      "source_count": 400,
+      "pilot_count": 3,
+      "language_key": "language",
+      "language_counts": {
+        "EN": 2,
+        "ZH": 1
+      }
+    },
+    {
+      "task": "Privacy-tier2/Audio_conditioned_privacy",
+      "status": "created",
+      "source_metadata_path": "datasets/Privacy-tier2/Audio_conditioned_privacy/metadata.jsonl",
+      "pilot_metadata_path": "pilot_subsets/smoke_3/Privacy-tier2/Audio_conditioned_privacy/metadata.jsonl",
+      "source_count": 400,
+      "pilot_count": 3,
+      "language_key": "language",
+      "language_counts": {
+        "EN": 2,
+        "ZH": 1
+      }
+    }
+  ]
+}
