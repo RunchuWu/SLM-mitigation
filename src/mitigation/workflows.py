@@ -9,6 +9,9 @@ from .io import normalize_text
 from . import prompts
 
 
+PROMPT_VERSION = "no_task_label_v2"
+
+
 def original_system_prompt(sample: Dict[str, Any]) -> str:
     return normalize_text(sample.get("system_prompt", sample.get("system", "")))
 
@@ -34,6 +37,8 @@ def run_workflow(
         "response": None,
         "error": None,
         "latency": None,
+        "prompt_version": PROMPT_VERSION,
+        "leakage_mode": "baseline_original_prompt" if workflow == "baseline" else "no_task_label_no_metadata_transcript",
     }
     try:
         if workflow == "baseline":
@@ -43,18 +48,21 @@ def run_workflow(
             transcript = client.audio_chat("", prompts.ASR_PROMPT, audio_path)
             output["generated_transcript"] = transcript
             output["response"] = client.text_chat(
-                original_system_prompt(sample),
-                prompts.asr_text_answer_prompt(task, sample, transcript),
+                prompts.ASR_TEXT_ANSWER_SYSTEM,
+                prompts.asr_text_answer_prompt(sample, transcript),
             )
 
         elif workflow == "caption":
             caption = client.audio_chat("", prompts.ACOUSTIC_CAPTION_PROMPT, audio_path)
             output["acoustic_caption"] = caption
-            transcript = normalize_text(sample.get("transcript")) or caption
+            # The captioning call is asked to include a transcript. Do not fall
+            # back to metadata transcript here; that would leak ground-truth
+            # dataset text into an audio-derived mitigation pipeline.
+            transcript = ""
             output["generated_transcript"] = transcript
             output["response"] = client.text_chat(
                 prompts.POLICY_BOUND_ANSWER_SYSTEM,
-                prompts.caption_answer_prompt(task, sample, transcript, caption),
+                prompts.caption_answer_prompt(sample, transcript, caption),
             )
 
         elif workflow == "structured_policy":
@@ -64,7 +72,7 @@ def run_workflow(
             output["generated_transcript"] = cues.get("transcript")
             output["response"] = client.text_chat(
                 prompts.POLICY_BOUND_ANSWER_SYSTEM,
-                prompts.structured_policy_answer_prompt(task, sample, cues),
+                prompts.structured_policy_answer_prompt(sample, cues),
             )
 
         elif workflow == "verifier":
@@ -74,12 +82,12 @@ def run_workflow(
             output["generated_transcript"] = cues.get("transcript")
             draft = client.text_chat(
                 prompts.POLICY_BOUND_ANSWER_SYSTEM,
-                prompts.structured_policy_answer_prompt(task, sample, cues),
+                prompts.structured_policy_answer_prompt(sample, cues),
             )
             output["draft_response"] = draft
             verifier_raw = client.text_chat(
                 prompts.VERIFIER_PROMPT,
-                prompts.verifier_user_prompt(task, sample, cues, draft),
+                prompts.verifier_user_prompt(sample, cues, draft),
             )
             verifier_result = extract_json_object(verifier_raw)
             output["verifier_result"] = verifier_result
@@ -88,7 +96,7 @@ def run_workflow(
             else:
                 output["response"] = client.text_chat(
                     prompts.REVISION_SYSTEM,
-                    prompts.revision_user_prompt(task, sample, cues, draft, verifier_result),
+                    prompts.revision_user_prompt(sample, cues, draft, verifier_result),
                 )
 
         else:
@@ -98,4 +106,3 @@ def run_workflow(
     finally:
         output["latency"] = round(time.time() - started, 3)
     return output
-
