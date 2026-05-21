@@ -8,7 +8,7 @@ from pathlib import Path
 from typing import Dict, Iterable, List
 
 
-METRIC_RE = re.compile(r"^\s*([^:#][^:]*?)\s*[:=]\s*(-?\d+(?:\.\d+)?)\s*$")
+METRIC_RE = re.compile(r"^\s*([^:#][^:]*?)\s*[:=]\s*(-?\d+(?:\.\d+)?)%?\s*$")
 
 
 def parse_metrics(log_path: Path) -> Dict[str, float]:
@@ -94,4 +94,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
