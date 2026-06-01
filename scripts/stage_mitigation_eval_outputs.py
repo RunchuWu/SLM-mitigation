@@ -5,6 +5,8 @@ import argparse
 import shutil
 from pathlib import Path
 
+DEFAULT_EXPERIMENT_ROOT = Path("experiments/pilot50_gemini3_flash_tier2_v1")
+
 
 def main() -> int:
     parser = argparse.ArgumentParser()
@@ -12,8 +14,8 @@ def main() -> int:
     parser.add_argument("--model", required=True)
     parser.add_argument("--workflow", required=True)
     parser.add_argument("--task", required=True)
-    parser.add_argument("--source-root", default="final_eval_results")
-    parser.add_argument("--output-root", default="final_eval_results_mitigation")
+    parser.add_argument("--source-root", default=str(DEFAULT_EXPERIMENT_ROOT / "evaluator_outputs_raw"))
+    parser.add_argument("--output-root", default=str(DEFAULT_EXPERIMENT_ROOT / "evaluator_outputs"))
     args = parser.parse_args()
 
     src = Path(args.source_root) / args.converted_model_name / args.task
@@ -30,4 +32,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

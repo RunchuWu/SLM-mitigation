@@ -27,7 +27,7 @@ RESULTS_DIR = BASE_DIR / "results"
 OUTPUT_DIR = BASE_DIR / "final_eval_results"
 
 META_KEYS = {
-    "id", "system_prompt", "system", "query",
+    "id", "sample_id", "system_prompt", "system", "query",
     "task_type", "task", "tier", "label", "sub_label",
     "language", "Language", "lang", "response_type",
     "transcript", "audio_transcript", "source_text", "harmful_sentence",
@@ -101,6 +101,13 @@ def get_available_models(model_filter=None):
     if model_filter:
         models = [m for m in models if m == model_filter]
     return models
+
+
+def resolve_repo_path(path_value):
+    path = Path(path_value)
+    if path.is_absolute():
+        return path
+    return BASE_DIR / path
 
 
 def get_available_tasks(model):
@@ -825,11 +832,28 @@ def evaluate_task(model, task, max_workers):
 
 
 def main():
+    global RESULTS_DIR, OUTPUT_DIR
+
     parser = argparse.ArgumentParser(description="Evaluate model results")
     parser.add_argument("--model", type=str, default=None, help="Evaluate only this model")
     parser.add_argument("--task", type=str, default=None, help="Evaluate only this task (e.g. Safety-tier1/No_jailbreak)")
     parser.add_argument("--threads", type=int, default=8, help="Max worker threads")
+    parser.add_argument(
+        "--results-dir",
+        type=str,
+        default="results",
+        help="Directory containing model result JSONL files, relative to repo root unless absolute",
+    )
+    parser.add_argument(
+        "--output-dir",
+        type=str,
+        default="final_eval_results",
+        help="Directory for evaluator outputs, relative to repo root unless absolute",
+    )
     args = parser.parse_args()
+
+    RESULTS_DIR = resolve_repo_path(args.results_dir)
+    OUTPUT_DIR = resolve_repo_path(args.output_dir)
 
     models = get_available_models(args.model)
     if not models:
