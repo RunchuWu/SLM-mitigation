@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="1024" viewBox="0 0 1280 1024">
+<rect width="100%" height="100%" fill="#F7F9FC"/>
+<text x="640.0" y="44" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" fill="#172033">Mitigation Evaluation: Overall Awareness Metrics</text>
+<text x="640.0" y="72" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#4B5563">Parsed from VoxSafeBench official evaluator logs; smoke n is small</text>
+<line x1="300.0" y1="80" x2="300.0" y2="969" stroke="#E0E6EF" stroke-width="1"/>
+<text x="300.0" y="994" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#667085">0%</text>
+<line x1="490.0" y1="80" x2="490.0" y2="969" stroke="#E0E6EF" stroke-width="1"/>
+<text x="490.0" y="994" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#667085">25%</text>
+<line x1="680.0" y1="80" x2="680.0" y2="969" stroke="#E0E6EF" stroke-width="1"/>
+<text x="680.0" y="994" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#667085">50%</text>
+<line x1="870.0" y1="80" x2="870.0" y2="969" stroke="#E0E6EF" stroke-width="1"/>
+<text x="870.0" y="994" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#667085">75%</text>
+<line x1="1060.0" y1="80" x2="1060.0" y2="969" stroke="#E0E6EF" stroke-width="1"/>
+<text x="1060.0" y="994" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#667085">100%</text>
+<text x="24" y="115" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#172033">E2E Baseline</text>
+<text x="24" y="137" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#667085">Privacy-tier2/Audio_conditioned_privacy</text>
+<rect x="300" y="95" width="760" height="18" rx="4" fill="#E7ECF3"/>
+<rect x="300" y="95" width="212.8" height="18" rx="4" fill="#2A9D8F"/>
+<text x="1080" y="109" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#1F7A70">Aware 28.0%</text>
+<rect x="300" y="120" width="547.2" height="12" rx="3" fill="#E76F51"/>
+<rect x="300" y="137" width="0.0" height="12" rx="3" fill="#7B2CBF"/>
+<text x="1080" y="131" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#A6422B">DAR 72.0%</text>
+<text x="1080" y="148" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#5B21B6">RtA 0.0%</text>
+<text x="24" y="187" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#172033">Acoustic Caption</text>
+<text x="24" y="209" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#667085">Privacy-tier2/Audio_conditioned_privacy</text>
+<rect x="300" y="167" width="760" height="18" rx="4" fill="#E7ECF3"/>
+<rect x="300" y="167" width="319.2" height="18" rx="4" fill="#2A9D8F"/>
+<text x="1080" y="181" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#1F7A70">Aware 42.0%</text>
+<rect x="300" y="192" width="440.8" height="12" rx="3" fill="#E76F51"/>
+<rect x="300" y="209" width="0.0" height="12" rx="3" fill="#7B2CBF"/>
+<text x="1080" y="203" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#A6422B">DAR 58.0%</text>
+<text x="1080" y="220" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#5B21B6">RtA 0.0%</text>
+<text x="24" y="259" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#172033">Caption + Verifier</text>
+<text x="24" y="281" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#667085">Privacy-tier2/Audio_conditioned_privacy</text>
+<rect x="300" y="239" width="760" height="18" rx="4" fill="#E7ECF3"/>
+<rect x="300" y="239" width="608.0" height="18" rx="4" fill="#2A9D8F"/>
+<text x="1080" y="253" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#1F7A70">Aware 80.0%</text>
+<rect x="300" y="264" width="152.0" height="12" rx="3" fill="#E76F51"/>
+<rect x="300" y="281" width="15.2" height="12" rx="3" fill="#7B2CBF"/>
+<text x="1080" y="275" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#A6422B">DAR 20.0%</text>
+<text x="1080" y="292" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#5B21B6">RtA 2.0%</text>
+<text x="24" y="331" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#172033">E2E Baseline</text>
+<text x="24" y="353" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#667085">Safety-tier2/Child_presence</text>
+<rect x="300" y="311" width="760" height="18" rx="4" fill="#E7ECF3"/>
+<rect x="300" y="311" width="120.9" height="18" rx="4" fill="#2A9D8F"/>
+<text x="1080" y="325" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#1F7A70">Aware 15.9%</text>
+<rect x="300" y="336" width="639.1" height="12" rx="3" fill="#E76F51"/>
+<rect x="300" y="353" width="0.0" height="12" rx="3" fill="#7B2CBF"/>
+<text x="1080" y="347" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#A6422B">DAR 84.1%</text>
+<text x="1080" y="364" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#5B21B6">RtA 0.0%</text>
+<text x="24" y="403" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#172033">Acoustic Caption</text>
+<text x="24" y="425" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#667085">Safety-tier2/Child_presence</text>
+<rect x="300" y="383" width="760" height="18" rx="4" fill="#E7ECF3"/>
+<rect x="300" y="383" width="86.9" height="18" rx="4" fill="#2A9D8F"/>
+<text x="1080" y="397" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#1F7A70">Aware 11.4%</text>
+<rect x="300" y="408" width="673.1" height="12" rx="3" fill="#E76F51"/>
+<rect x="300" y="425" width="0.0" height="12" rx="3" fill="#7B2CBF"/>
+<text x="1080" y="419" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#A6422B">DAR 88.6%</text>
+<text x="1080" y="436" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#5B21B6">RtA 0.0%</text>
+<text x="24" y="475" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#172033">Caption + Verifier</text>
+<text x="24" y="497" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#667085">Safety-tier2/Child_presence</text>
+<rect x="300" y="455" width="760" height="18" rx="4" fill="#E7ECF3"/>
+<rect x="300" y="455" width="120.0" height="18" rx="4" fill="#2A9D8F"/>
+<text x="1080" y="469" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#1F7A70">Aware 15.8%</text>
+<rect x="300" y="480" width="640.0" height="12" rx="3" fill="#E76F51"/>
+<rect x="300" y="497" width="20.0" height="12" rx="3" fill="#7B2CBF"/>
+<text x="1080" y="491" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#A6422B">DAR 84.2%</text>
+<text x="1080" y="508" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#5B21B6">RtA 2.6%</text>
+<text x="24" y="547" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#172033">E2E Baseline</text>
+<text x="24" y="569" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#667085">Safety-tier2/Child_voice</text>
+<rect x="300" y="527" width="760" height="18" rx="4" fill="#E7ECF3"/>
+<rect x="300" y="527" width="440.8" height="18" rx="4" fill="#2A9D8F"/>
+<text x="1080" y="541" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#1F7A70">Aware 58.0%</text>
+<rect x="300" y="552" width="319.2" height="12" rx="3" fill="#E76F51"/>
+<rect x="300" y="569" width="15.2" height="12" rx="3" fill="#7B2CBF"/>
+<text x="1080" y="563" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#A6422B">DAR 42.0%</text>
+<text x="1080" y="580" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#5B21B6">RtA 2.0%</text>
+<text x="24" y="619" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#172033">Acoustic Caption</text>
+<text x="24" y="641" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#667085">Safety-tier2/Child_voice</text>
+<rect x="300" y="599" width="760" height="18" rx="4" fill="#E7ECF3"/>
+<rect x="300" y="599" width="562.4" height="18" rx="4" fill="#2A9D8F"/>
+<text x="1080" y="613" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#1F7A70">Aware 74.0%</text>
+<rect x="300" y="624" width="197.6" height="12" rx="3" fill="#E76F51"/>
+<rect x="300" y="641" width="167.2" height="12" rx="3" fill="#7B2CBF"/>
+<text x="1080" y="635" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#A6422B">DAR 26.0%</text>
+<text x="1080" y="652" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#5B21B6">RtA 22.0%</text>
+<text x="24" y="691" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#172033">Caption + Verifier</text>
+<text x="24" y="713" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#667085">Safety-tier2/Child_voice</text>
+<rect x="300" y="671" width="760" height="18" rx="4" fill="#E7ECF3"/>
+<rect x="300" y="671" width="604.9" height="18" rx="4" fill="#2A9D8F"/>
+<text x="1080" y="685" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#1F7A70">Aware 79.6%</text>
+<rect x="300" y="696" width="155.1" height="12" rx="3" fill="#E76F51"/>
+<rect x="300" y="713" width="201.6" height="12" rx="3" fill="#7B2CBF"/>
+<text x="1080" y="707" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#A6422B">DAR 20.4%</text>
+<text x="1080" y="724" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#5B21B6">RtA 26.5%</text>
+<text x="24" y="763" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#172033">E2E Baseline</text>
+<text x="24" y="785" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#667085">Safety-tier2/Impaired_capacity</text>
+<rect x="300" y="743" width="760" height="18" rx="4" fill="#E7ECF3"/>
+<rect x="300" y="743" width="253.3" height="18" rx="4" fill="#2A9D8F"/>
+<text x="1080" y="757" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#1F7A70">Aware 33.3%</text>
+<rect x="300" y="768" width="506.7" height="12" rx="3" fill="#E76F51"/>
+<rect x="300" y="785" width="47.5" height="12" rx="3" fill="#7B2CBF"/>
+<text x="1080" y="779" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#A6422B">DAR 66.7%</text>
+<text x="1080" y="796" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#5B21B6">RtA 6.2%</text>
+<text x="24" y="835" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#172033">Acoustic Caption</text>
+<text x="24" y="857" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#667085">Safety-tier2/Impaired_capacity</text>
+<rect x="300" y="815" width="760" height="18" rx="4" fill="#E7ECF3"/>
+<rect x="300" y="815" width="554.2" height="18" rx="4" fill="#2A9D8F"/>
+<text x="1080" y="829" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#1F7A70">Aware 72.9%</text>
+<rect x="300" y="840" width="205.8" height="12" rx="3" fill="#E76F51"/>
+<rect x="300" y="857" width="475.0" height="12" rx="3" fill="#7B2CBF"/>
+<text x="1080" y="851" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#A6422B">DAR 27.1%</text>
+<text x="1080" y="868" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#5B21B6">RtA 62.5%</text>
+<text x="24" y="907" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#172033">Caption + Verifier</text>
+<text x="24" y="929" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#667085">Safety-tier2/Impaired_capacity</text>
+<rect x="300" y="887" width="760" height="18" rx="4" fill="#E7ECF3"/>
+<rect x="300" y="887" width="698.0" height="18" rx="4" fill="#2A9D8F"/>
+<text x="1080" y="901" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#1F7A70">Aware 91.8%</text>
+<rect x="300" y="912" width="62.0" height="12" rx="3" fill="#E76F51"/>
+<rect x="300" y="929" width="496.4" height="12" rx="3" fill="#7B2CBF"/>
+<text x="1080" y="923" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#A6422B">DAR 8.2%</text>
+<text x="1080" y="940" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#5B21B6">RtA 65.3%</text>
+<text x="24" y="994" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#667085">Green = Aware%; orange = DAR%; purple = RtA%.</text>
+</svg>

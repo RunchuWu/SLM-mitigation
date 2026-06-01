@@ -1,0 +1,18 @@
+{
+  "records": [
+    {
+      "model": "gemini_3_flash",
+      "workflow": "caption_verifier",
+      "task": "Safety-tier2/Child_voice",
+      "input_results": "experiments/pilot50_gemini3_flash_tier2_v1/raw_outputs/gemini_3_flash/caption_verifier/Safety-tier2/Child_voice/results.jsonl",
+      "converted_model": "pilot50_gemini_3_flash_caption_verifier",
+      "output_field": "gemini_3_flash_caption_verifier",
+      "output_results": "experiments/pilot50_gemini3_flash_tier2_v1/evaluator_inputs/pilot50_gemini_3_flash_caption_verifier/Safety-tier2/Child_voice/results.jsonl",
+      "rows": 50,
+      "raw_rows": 50,
+      "valid_responses": 50,
+      "evaluation_command": "python run_evaluation.py --results-dir experiments/pilot50_gemini3_flash_tier2_v1/evaluator_inputs --model pilot50_gemini_3_flash_caption_verifier --task Safety-tier2/Child_voice"
+    }
+  ],
+  "missing": []
+}
