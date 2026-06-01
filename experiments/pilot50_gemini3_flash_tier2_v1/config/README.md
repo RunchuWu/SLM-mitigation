@@ -10,6 +10,7 @@ Workflows:
 
 - `baseline`
 - `caption`
+- `caption_verifier`
 - `verifier`
 
 Tasks:
@@ -22,7 +23,8 @@ Tasks:
 Sample size:
 
 - 50 samples per task per workflow
-- 600 workflow outputs total before evaluator calls
+- 800 workflow outputs total across the four stored workflows before evaluator calls
+- The main comparison table focuses on `baseline`, `caption`, and `caption_verifier`; the older `verifier` workflow is archived for reference because it uses structured cues and policy mapping rather than caption-only verification.
 
 Artifact notes:
 

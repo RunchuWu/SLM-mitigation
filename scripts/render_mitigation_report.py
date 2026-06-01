@@ -73,7 +73,12 @@ def parse_log(path: Path, model: str, workflow: str, task: str) -> List[Dict[str
     return records
 
 
-def collect_records(eval_root: Path, model_filter: Optional[str], task_filter: Optional[str]) -> List[Dict[str, object]]:
+def collect_records(
+    eval_root: Path,
+    model_filter: Optional[str],
+    task_filter: Optional[str],
+    workflow_filter: Optional[set[str]] = None,
+) -> List[Dict[str, object]]:
     records: List[Dict[str, object]] = []
     for log_path in eval_root.rglob("log.txt"):
         rel = log_path.relative_to(eval_root)
@@ -83,6 +88,8 @@ def collect_records(eval_root: Path, model_filter: Optional[str], task_filter: O
         workflow = rel.parts[1]
         task = "/".join(rel.parts[2:-1])
         if model_filter and model != model_filter:
+            continue
+        if workflow_filter and workflow not in workflow_filter:
             continue
         if task_filter and task != task_filter:
             continue
@@ -266,13 +273,15 @@ def main() -> int:
     parser.add_argument("--eval-root", default=str(DEFAULT_EXPERIMENT_ROOT / "evaluator_outputs"))
     parser.add_argument("--model")
     parser.add_argument("--task")
+    parser.add_argument("--workflows", nargs="+")
     parser.add_argument("--output-dir", default=str(DEFAULT_EXPERIMENT_ROOT / "analysis"))
     parser.add_argument("--figure-dir", default=str(DEFAULT_EXPERIMENT_ROOT / "archive" / "report_assets"))
     args = parser.parse_args()
 
     output_dir = Path(args.output_dir)
     figure_dir = Path(args.figure_dir)
-    records = collect_records(Path(args.eval_root), args.model, args.task)
+    workflow_filter = set(args.workflows) if args.workflows else None
+    records = collect_records(Path(args.eval_root), args.model, args.task, workflow_filter)
     if not records:
         raise FileNotFoundError(f"No evaluation logs found under {args.eval_root}")
 
