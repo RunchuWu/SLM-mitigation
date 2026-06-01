@@ -5,7 +5,7 @@ import argparse
 import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
-from threading import Lock
+from threading import Lock, local
 from typing import Any, Dict, List
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -15,7 +15,7 @@ from src.mitigation.io import append_jsonl, first_audio_path, read_jsonl, stable
 from src.mitigation.workflows import run_workflow
 
 
-WORKFLOWS = ["baseline", "asr_text", "caption", "structured_policy", "verifier"]
+WORKFLOWS = ["baseline", "asr_text", "caption", "caption_verifier", "structured_policy", "verifier"]
 
 
 def output_path(output_dir: Path, model: str, workflow: str, task: str) -> Path:
@@ -40,7 +40,7 @@ def main() -> int:
     parser.add_argument("--workflow", required=True, choices=WORKFLOWS)
     parser.add_argument("--task", required=True)
     parser.add_argument("--input-metadata", required=True)
-    parser.add_argument("--output-dir", default="results_mitigation")
+    parser.add_argument("--output-dir", default="experiments/ad_hoc/raw_outputs")
     parser.add_argument("--max-workers", type=int, default=1)
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--limit", type=int, default=None)
@@ -53,10 +53,10 @@ def main() -> int:
     out_path = output_path(Path(args.output_dir), args.model, args.workflow, args.task)
     completed = load_completed(out_path) if args.resume else {}
     lock = Lock()
-    client = None
+    thread_state = local()
     client_error = None
     try:
-        client = create_client(args.model, args.model_name)
+        create_client(args.model, args.model_name)
     except Exception as exc:
         client_error = f"{type(exc).__name__}: {exc}"
 
@@ -91,6 +91,7 @@ def main() -> int:
                     "generated_transcript": None,
                     "acoustic_caption": None,
                     "structured_cues": None,
+                    "policy_decision": None,
                     "draft_response": None,
                     "verifier_result": None,
                     "response": None,
@@ -102,8 +103,9 @@ def main() -> int:
         if not audio_path:
             base.update({"response": None, "error": "No audio path found", "latency": 0})
             return base
-        assert client is not None
-        result = run_workflow(client, args.workflow, args.task, sample, audio_path)
+        if not hasattr(thread_state, "client"):
+            thread_state.client = create_client(args.model, args.model_name)
+        result = run_workflow(thread_state.client, args.workflow, args.task, sample, audio_path)
         base.update(result)
         return base
 

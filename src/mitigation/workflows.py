@@ -32,6 +32,7 @@ def run_workflow(
         "generated_transcript": None,
         "acoustic_caption": None,
         "structured_cues": None,
+        "policy_decision": None,
         "draft_response": None,
         "verifier_result": None,
         "response": None,
@@ -65,29 +66,19 @@ def run_workflow(
                 prompts.caption_answer_prompt(sample, transcript, caption),
             )
 
-        elif workflow == "structured_policy":
-            raw = client.audio_chat("", prompts.STRUCTURED_CUE_PROMPT, audio_path)
-            cues = extract_json_object(raw)
-            output["structured_cues"] = cues
-            output["generated_transcript"] = cues.get("transcript")
-            output["response"] = client.text_chat(
-                prompts.POLICY_BOUND_ANSWER_SYSTEM,
-                prompts.structured_policy_answer_prompt(sample, cues),
-            )
-
-        elif workflow == "verifier":
-            raw = client.audio_chat("", prompts.STRUCTURED_CUE_PROMPT, audio_path)
-            cues = extract_json_object(raw)
-            output["structured_cues"] = cues
-            output["generated_transcript"] = cues.get("transcript")
+        elif workflow == "caption_verifier":
+            caption = client.audio_chat("", prompts.ACOUSTIC_CAPTION_PROMPT, audio_path)
+            output["acoustic_caption"] = caption
+            transcript = ""
+            output["generated_transcript"] = transcript
             draft = client.text_chat(
                 prompts.POLICY_BOUND_ANSWER_SYSTEM,
-                prompts.structured_policy_answer_prompt(sample, cues),
+                prompts.caption_answer_prompt(sample, transcript, caption),
             )
             output["draft_response"] = draft
             verifier_raw = client.text_chat(
-                prompts.VERIFIER_PROMPT,
-                prompts.verifier_user_prompt(sample, cues, draft),
+                prompts.CAPTION_VERIFIER_PROMPT,
+                prompts.caption_verifier_user_prompt(sample, caption, draft),
             )
             verifier_result = extract_json_object(verifier_raw)
             output["verifier_result"] = verifier_result
@@ -96,7 +87,53 @@ def run_workflow(
             else:
                 output["response"] = client.text_chat(
                     prompts.REVISION_SYSTEM,
-                    prompts.revision_user_prompt(sample, cues, draft, verifier_result),
+                    prompts.caption_revision_user_prompt(sample, caption, draft, verifier_result),
+                )
+
+        elif workflow == "structured_policy":
+            raw = client.audio_chat("", prompts.STRUCTURED_CUE_PROMPT, audio_path)
+            cues = extract_json_object(raw)
+            output["structured_cues"] = cues
+            output["generated_transcript"] = cues.get("transcript")
+            policy_raw = client.text_chat(
+                prompts.POLICY_MAPPER_SYSTEM,
+                prompts.policy_mapper_prompt(sample, cues),
+            )
+            policy_decision = extract_json_object(policy_raw)
+            output["policy_decision"] = policy_decision
+            output["response"] = client.text_chat(
+                prompts.POLICY_BOUND_ANSWER_SYSTEM,
+                prompts.structured_policy_answer_prompt(sample, cues, policy_decision),
+            )
+
+        elif workflow == "verifier":
+            raw = client.audio_chat("", prompts.STRUCTURED_CUE_PROMPT, audio_path)
+            cues = extract_json_object(raw)
+            output["structured_cues"] = cues
+            output["generated_transcript"] = cues.get("transcript")
+            policy_raw = client.text_chat(
+                prompts.POLICY_MAPPER_SYSTEM,
+                prompts.policy_mapper_prompt(sample, cues),
+            )
+            policy_decision = extract_json_object(policy_raw)
+            output["policy_decision"] = policy_decision
+            draft = client.text_chat(
+                prompts.POLICY_BOUND_ANSWER_SYSTEM,
+                prompts.structured_policy_answer_prompt(sample, cues, policy_decision),
+            )
+            output["draft_response"] = draft
+            verifier_raw = client.text_chat(
+                prompts.VERIFIER_PROMPT,
+                prompts.verifier_user_prompt(sample, cues, policy_decision, draft),
+            )
+            verifier_result = extract_json_object(verifier_raw)
+            output["verifier_result"] = verifier_result
+            if verifier_result.get("pass") is True:
+                output["response"] = draft
+            else:
+                output["response"] = client.text_chat(
+                    prompts.REVISION_SYSTEM,
+                    prompts.revision_user_prompt(sample, cues, policy_decision, draft, verifier_result),
                 )
 
         else:
