@@ -1,0 +1,44 @@
+{
+  "records": [
+    {
+      "model": "gemini_3_flash",
+      "workflow": "baseline",
+      "task": "Privacy-tier2/Audio_conditioned_privacy",
+      "input_results": "experiments/pilot50_gemini3_flash_tier2_v1/raw_outputs/gemini_3_flash/baseline/Privacy-tier2/Audio_conditioned_privacy/results.jsonl",
+      "converted_model": "pilot50_gemini_3_flash_baseline",
+      "output_field": "gemini_3_flash_baseline",
+      "output_results": "results/pilot50_gemini_3_flash_baseline/Privacy-tier2/Audio_conditioned_privacy/results.jsonl",
+      "rows": 50,
+      "raw_rows": 51,
+      "valid_responses": 50,
+      "evaluation_command": "python run_evaluation.py --model pilot50_gemini_3_flash_baseline --task Privacy-tier2/Audio_conditioned_privacy"
+    },
+    {
+      "model": "gemini_3_flash",
+      "workflow": "caption",
+      "task": "Privacy-tier2/Audio_conditioned_privacy",
+      "input_results": "experiments/pilot50_gemini3_flash_tier2_v1/raw_outputs/gemini_3_flash/caption/Privacy-tier2/Audio_conditioned_privacy/results.jsonl",
+      "converted_model": "pilot50_gemini_3_flash_caption",
+      "output_field": "gemini_3_flash_caption",
+      "output_results": "results/pilot50_gemini_3_flash_caption/Privacy-tier2/Audio_conditioned_privacy/results.jsonl",
+      "rows": 50,
+      "raw_rows": 51,
+      "valid_responses": 50,
+      "evaluation_command": "python run_evaluation.py --model pilot50_gemini_3_flash_caption --task Privacy-tier2/Audio_conditioned_privacy"
+    },
+    {
+      "model": "gemini_3_flash",
+      "workflow": "verifier",
+      "task": "Privacy-tier2/Audio_conditioned_privacy",
+      "input_results": "experiments/pilot50_gemini3_flash_tier2_v1/raw_outputs/gemini_3_flash/verifier/Privacy-tier2/Audio_conditioned_privacy/results.jsonl",
+      "converted_model": "pilot50_gemini_3_flash_verifier",
+      "output_field": "gemini_3_flash_verifier",
+      "output_results": "results/pilot50_gemini_3_flash_verifier/Privacy-tier2/Audio_conditioned_privacy/results.jsonl",
+      "rows": 50,
+      "raw_rows": 51,
+      "valid_responses": 50,
+      "evaluation_command": "python run_evaluation.py --model pilot50_gemini_3_flash_verifier --task Privacy-tier2/Audio_conditioned_privacy"
+    }
+  ],
+  "missing": []
+}

@@ -1,0 +1,44 @@
+{
+  "records": [
+    {
+      "model": "gemini_3_flash",
+      "workflow": "baseline",
+      "task": "Safety-tier2/Child_voice",
+      "input_results": "experiments/pilot50_gemini3_flash_tier2_v1/raw_outputs/gemini_3_flash/baseline/Safety-tier2/Child_voice/results.jsonl",
+      "converted_model": "pilot50_gemini_3_flash_baseline",
+      "output_field": "gemini_3_flash_baseline",
+      "output_results": "results/pilot50_gemini_3_flash_baseline/Safety-tier2/Child_voice/results.jsonl",
+      "rows": 50,
+      "raw_rows": 51,
+      "valid_responses": 50,
+      "evaluation_command": "python run_evaluation.py --model pilot50_gemini_3_flash_baseline --task Safety-tier2/Child_voice"
+    },
+    {
+      "model": "gemini_3_flash",
+      "workflow": "caption",
+      "task": "Safety-tier2/Child_voice",
+      "input_results": "experiments/pilot50_gemini3_flash_tier2_v1/raw_outputs/gemini_3_flash/caption/Safety-tier2/Child_voice/results.jsonl",
+      "converted_model": "pilot50_gemini_3_flash_caption",
+      "output_field": "gemini_3_flash_caption",
+      "output_results": "results/pilot50_gemini_3_flash_caption/Safety-tier2/Child_voice/results.jsonl",
+      "rows": 50,
+      "raw_rows": 51,
+      "valid_responses": 50,
+      "evaluation_command": "python run_evaluation.py --model pilot50_gemini_3_flash_caption --task Safety-tier2/Child_voice"
+    },
+    {
+      "model": "gemini_3_flash",
+      "workflow": "verifier",
+      "task": "Safety-tier2/Child_voice",
+      "input_results": "experiments/pilot50_gemini3_flash_tier2_v1/raw_outputs/gemini_3_flash/verifier/Safety-tier2/Child_voice/results.jsonl",
+      "converted_model": "pilot50_gemini_3_flash_verifier",
+      "output_field": "gemini_3_flash_verifier",
+      "output_results": "results/pilot50_gemini_3_flash_verifier/Safety-tier2/Child_voice/results.jsonl",
+      "rows": 50,
+      "raw_rows": 51,
+      "valid_responses": 50,
+      "evaluation_command": "python run_evaluation.py --model pilot50_gemini_3_flash_verifier --task Safety-tier2/Child_voice"
+    }
+  ],
+  "missing": []
+}

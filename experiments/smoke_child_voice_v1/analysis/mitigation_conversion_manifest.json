@@ -1,0 +1,65 @@
+{
+  "records": [
+    {
+      "model": "gemini_3_flash",
+      "workflow": "baseline",
+      "task": "Safety-tier2/Child_voice",
+      "input_results": "experiments/smoke_child_voice_v1/raw_outputs_clean/gemini_3_flash/baseline/Safety-tier2/Child_voice/results.jsonl",
+      "converted_model": "smoke_clean_gemini_3_flash_baseline",
+      "output_field": "gemini_3_flash_baseline",
+      "output_results": "results/smoke_clean_gemini_3_flash_baseline/Safety-tier2/Child_voice/results.jsonl",
+      "rows": 3,
+      "valid_responses": 3,
+      "evaluation_command": "python run_evaluation.py --model smoke_clean_gemini_3_flash_baseline --task Safety-tier2/Child_voice"
+    },
+    {
+      "model": "gemini_3_flash",
+      "workflow": "asr_text",
+      "task": "Safety-tier2/Child_voice",
+      "input_results": "experiments/smoke_child_voice_v1/raw_outputs_clean/gemini_3_flash/asr_text/Safety-tier2/Child_voice/results.jsonl",
+      "converted_model": "smoke_clean_gemini_3_flash_asr_text",
+      "output_field": "gemini_3_flash_asr_text",
+      "output_results": "results/smoke_clean_gemini_3_flash_asr_text/Safety-tier2/Child_voice/results.jsonl",
+      "rows": 3,
+      "valid_responses": 3,
+      "evaluation_command": "python run_evaluation.py --model smoke_clean_gemini_3_flash_asr_text --task Safety-tier2/Child_voice"
+    },
+    {
+      "model": "gemini_3_flash",
+      "workflow": "caption",
+      "task": "Safety-tier2/Child_voice",
+      "input_results": "experiments/smoke_child_voice_v1/raw_outputs_clean/gemini_3_flash/caption/Safety-tier2/Child_voice/results.jsonl",
+      "converted_model": "smoke_clean_gemini_3_flash_caption",
+      "output_field": "gemini_3_flash_caption",
+      "output_results": "results/smoke_clean_gemini_3_flash_caption/Safety-tier2/Child_voice/results.jsonl",
+      "rows": 3,
+      "valid_responses": 3,
+      "evaluation_command": "python run_evaluation.py --model smoke_clean_gemini_3_flash_caption --task Safety-tier2/Child_voice"
+    },
+    {
+      "model": "gemini_3_flash",
+      "workflow": "structured_policy",
+      "task": "Safety-tier2/Child_voice",
+      "input_results": "experiments/smoke_child_voice_v1/raw_outputs_clean/gemini_3_flash/structured_policy/Safety-tier2/Child_voice/results.jsonl",
+      "converted_model": "smoke_clean_gemini_3_flash_structured_policy",
+      "output_field": "gemini_3_flash_structured_policy",
+      "output_results": "results/smoke_clean_gemini_3_flash_structured_policy/Safety-tier2/Child_voice/results.jsonl",
+      "rows": 3,
+      "valid_responses": 3,
+      "evaluation_command": "python run_evaluation.py --model smoke_clean_gemini_3_flash_structured_policy --task Safety-tier2/Child_voice"
+    },
+    {
+      "model": "gemini_3_flash",
+      "workflow": "verifier",
+      "task": "Safety-tier2/Child_voice",
+      "input_results": "experiments/smoke_child_voice_v1/raw_outputs_clean/gemini_3_flash/verifier/Safety-tier2/Child_voice/results.jsonl",
+      "converted_model": "smoke_clean_gemini_3_flash_verifier",
+      "output_field": "gemini_3_flash_verifier",
+      "output_results": "results/smoke_clean_gemini_3_flash_verifier/Safety-tier2/Child_voice/results.jsonl",
+      "rows": 3,
+      "valid_responses": 3,
+      "evaluation_command": "python run_evaluation.py --model smoke_clean_gemini_3_flash_verifier --task Safety-tier2/Child_voice"
+    }
+  ],
+  "missing": []
+}
