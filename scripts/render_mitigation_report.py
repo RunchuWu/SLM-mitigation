@@ -15,14 +15,16 @@ FIELD_RE = re.compile(r"^--- Field: (.+?) ---$")
 SPLIT_RE = re.compile(r"^\s*\[(.+?)\]\s+\((\d+) rows with responses\)")
 
 
-WORKFLOW_ORDER = ["baseline", "asr_text", "caption", "structured_policy", "verifier"]
+WORKFLOW_ORDER = ["baseline", "asr_text", "caption", "caption_verifier", "structured_policy", "verifier"]
 WORKFLOW_LABELS = {
     "baseline": "E2E Baseline",
     "asr_text": "ASR Transcript",
     "caption": "Acoustic Caption",
+    "caption_verifier": "Caption + Verifier",
     "structured_policy": "Structured Cue + Policy",
     "verifier": "Verifier Revision",
 }
+DEFAULT_EXPERIMENT_ROOT = Path("experiments/pilot50_gemini3_flash_tier2_v1")
 
 
 def parse_log(path: Path, model: str, workflow: str, task: str) -> List[Dict[str, object]]:
@@ -126,7 +128,7 @@ def write_markdown(path: Path, records: List[Dict[str, object]]) -> None:
     lines = [
         "# VoxSafeBench Mitigation Evaluation Summary",
         "",
-        "Official evaluator results parsed from `final_eval_results_mitigation`. Smoke runs are diagnostic only.",
+        "Official evaluator results parsed from the configured evaluation root. Smoke runs are diagnostic only.",
         "",
         "| model | workflow | task | DAR | WAR | RtA | SKIP | Aware % | DAR % | RtA % |",
         "|---|---|---|---:|---:|---:|---:|---:|---:|---:|",
@@ -261,25 +263,27 @@ def write_metric_chart(path: Path, records: List[Dict[str, object]]) -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Render mitigation workflow and evaluation report figures.")
-    parser.add_argument("--eval-root", default="final_eval_results_mitigation")
+    parser.add_argument("--eval-root", default=str(DEFAULT_EXPERIMENT_ROOT / "evaluator_outputs"))
     parser.add_argument("--model")
     parser.add_argument("--task")
-    parser.add_argument("--output-dir", default="analysis_outputs/mitigation_report")
+    parser.add_argument("--output-dir", default=str(DEFAULT_EXPERIMENT_ROOT / "analysis"))
+    parser.add_argument("--figure-dir", default=str(DEFAULT_EXPERIMENT_ROOT / "archive" / "report_assets"))
     args = parser.parse_args()
 
     output_dir = Path(args.output_dir)
+    figure_dir = Path(args.figure_dir)
     records = collect_records(Path(args.eval_root), args.model, args.task)
     if not records:
         raise FileNotFoundError(f"No evaluation logs found under {args.eval_root}")
 
     write_csv(output_dir / "evaluation_summary.csv", records)
     write_markdown(output_dir / "evaluation_summary.md", records)
-    write_workflow_figure(output_dir / "mitigation_workflows.svg")
-    write_metric_chart(output_dir / "evaluation_metrics.svg", records)
+    write_workflow_figure(figure_dir / "mitigation_workflows.svg")
+    write_metric_chart(figure_dir / "evaluation_metrics.svg", records)
     print(f"Wrote {output_dir / 'evaluation_summary.csv'}")
     print(f"Wrote {output_dir / 'evaluation_summary.md'}")
-    print(f"Wrote {output_dir / 'mitigation_workflows.svg'}")
-    print(f"Wrote {output_dir / 'evaluation_metrics.svg'}")
+    print(f"Wrote {figure_dir / 'mitigation_workflows.svg'}")
+    print(f"Wrote {figure_dir / 'evaluation_metrics.svg'}")
     return 0
 
 

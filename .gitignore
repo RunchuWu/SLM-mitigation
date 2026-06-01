@@ -212,6 +212,8 @@ __marimo__/
 
 datasets
 results/*
+.DS_Store
+scripts/legacy/
 
 model_warehouse/*
 models_deprecated
