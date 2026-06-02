@@ -10,7 +10,7 @@ from typing import Any, Dict, List
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from src.mitigation.clients import create_client
+from src.mitigation.clients import SUPPORTED_MITIGATION_MODELS, create_client
 from src.mitigation.io import append_jsonl, first_audio_path, read_jsonl, stable_sample_id
 from src.mitigation.workflows import run_workflow
 
@@ -35,7 +35,7 @@ def load_completed(path: Path) -> Dict[str, Dict[str, Any]]:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model", required=True, choices=["gpt_4o_audio", "gemini_3_flash", "gemini_3_pro"])
+    parser.add_argument("--model", required=True, choices=SUPPORTED_MITIGATION_MODELS)
     parser.add_argument("--model-name", default=None)
     parser.add_argument("--workflow", required=True, choices=WORKFLOWS)
     parser.add_argument("--task", required=True)

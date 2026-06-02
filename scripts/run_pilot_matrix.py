@@ -7,6 +7,10 @@ import sys
 from pathlib import Path
 from typing import List
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from src.mitigation.clients import SUPPORTED_MITIGATION_MODELS
+
 
 DEFAULT_TASKS = [
     "Safety-tier2/Child_voice",
@@ -33,7 +37,7 @@ def run_command(args: List[str], dry_run: bool) -> int:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Run a VoxSafeBench Tier 2 mitigation pilot matrix.")
-    parser.add_argument("--model", required=True, choices=["gpt_4o_audio", "gemini_3_flash", "gemini_3_pro"])
+    parser.add_argument("--model", required=True, choices=SUPPORTED_MITIGATION_MODELS)
     parser.add_argument("--model-name", default=None)
     parser.add_argument("--input-root", default="pilot_subsets/pilot_50")
     parser.add_argument("--experiment-dir", default=DEFAULT_EXPERIMENT_DIR)

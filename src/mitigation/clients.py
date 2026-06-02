@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import base64
+import importlib
 import json
 import os
 import time
@@ -15,6 +16,17 @@ MODEL_DEFAULTS = {
     "gemini_3_flash": "gemini-3-flash-preview",
     "gemini_3_pro": "gemini-3-pro-preview",
 }
+
+LOCAL_RUNNER_ALIASES = {
+    "qwen3_omni": "Qwen3_omni",
+    "Qwen3_omni": "Qwen3_omni",
+    "qwen3_omni_thinking": "Qwen3_omni_thinking",
+    "Qwen3_omni_thinking": "Qwen3_omni_thinking",
+    "kimi_audio": "Kimi_audio",
+    "Kimi_audio": "Kimi_audio",
+}
+
+SUPPORTED_MITIGATION_MODELS = sorted([*MODEL_DEFAULTS.keys(), *LOCAL_RUNNER_ALIASES.keys()])
 
 
 def is_placeholder_key(value: str) -> bool:
@@ -184,11 +196,91 @@ class GeminiMitigationClient(MitigationClient):
         return "" if not getattr(response, "text", None) else str(response.text).strip()
 
 
+class LocalSharedRunnerMitigationClient(MitigationClient):
+    """Adapter for local VoxSafeBench-style model runners.
+
+    The existing open-source model folders already know how to load and call
+    each model. This class reuses those loaders and exposes the smaller
+    audio_chat/text_chat interface needed by the mitigation workflows.
+    """
+
+    def __init__(self, runner_name: str, model_path: Optional[str] = None) -> None:
+        self.runner_name = runner_name
+        self.runner = importlib.import_module(f"models.{runner_name}.shared_runner")
+        if model_path:
+            self._override_model_path(model_path)
+        self.model, self.processor = self._load()
+
+    def _override_model_path(self, model_path: str) -> None:
+        self.runner.MODEL_PATH = model_path
+        if self.runner_name.startswith("Mimo") and hasattr(self.runner, "TOKENIZER_PATH"):
+            tokenizer_path = os.getenv("MIMO_TOKENIZER_PATH")
+            if tokenizer_path:
+                self.runner.TOKENIZER_PATH = tokenizer_path
+
+    def _load(self) -> tuple[Any, Any]:
+        if hasattr(self.runner, "_load_model_processor"):
+            return self.runner._load_model_processor()
+        if hasattr(self.runner, "_load_model"):
+            return self.runner._load_model(), None
+        raise AttributeError(f"models.{self.runner_name}.shared_runner has no supported model loader")
+
+    def _qwen_chat(self, system_prompt: str, user_text: str, audio_path: Optional[Path] = None) -> str:
+        messages: List[Dict[str, Any]] = []
+        if system_prompt:
+            messages.append({"role": "system", "content": system_prompt})
+        if audio_path is None:
+            messages.append({"role": "user", "content": user_text})
+        else:
+            if not audio_path.exists():
+                raise FileNotFoundError(f"Audio file not found: {audio_path}")
+            content: List[Dict[str, str]] = [{"type": "audio", "audio": str(audio_path)}]
+            if user_text:
+                content.append({"type": "text", "text": user_text})
+            messages.append({"role": "user", "content": content})
+        response, _ = self.runner.run_model(
+            self.model,
+            self.processor,
+            messages,
+            return_audio=getattr(self.runner, "RETURN_AUDIO", False),
+            use_audio_in_video=getattr(self.runner, "USE_AUDIO_IN_VIDEO", True),
+        )
+        return str(response).strip()
+
+    def _kimi_chat(self, system_prompt: str, user_text: str, audio_path: Optional[Path] = None) -> str:
+        messages: List[Dict[str, str]] = []
+        if system_prompt:
+            messages.append({"role": "user", "message_type": "text", "content": system_prompt})
+        if user_text:
+            messages.append({"role": "user", "message_type": "text", "content": user_text})
+        if audio_path is not None:
+            if not audio_path.exists():
+                raise FileNotFoundError(f"Audio file not found: {audio_path}")
+            messages.append({"role": "user", "message_type": "audio", "content": str(audio_path)})
+        response, _ = self.runner.run_model(self.model, messages)
+        return str(response).strip()
+
+    def audio_chat(self, system_prompt: str, user_text: str, audio_path: Path) -> str:
+        if self.runner_name.startswith("Qwen3_omni"):
+            return self._qwen_chat(system_prompt, user_text, audio_path)
+        if self.runner_name == "Kimi_audio":
+            return self._kimi_chat(system_prompt, user_text, audio_path)
+        raise ValueError(f"Local mitigation audio_chat is not implemented for {self.runner_name}")
+
+    def text_chat(self, system_prompt: str, user_text: str) -> str:
+        if self.runner_name.startswith("Qwen3_omni"):
+            return self._qwen_chat(system_prompt, user_text)
+        if self.runner_name == "Kimi_audio":
+            return self._kimi_chat(system_prompt, user_text)
+        raise ValueError(f"Local mitigation text_chat is not implemented for {self.runner_name}")
+
+
 def create_client(model: str, model_name: Optional[str] = None) -> MitigationClient:
     resolved = model_name or MODEL_DEFAULTS.get(model, model)
     if model == "gpt_4o_audio":
         return OpenAIMitigationClient(resolved)
     if model in {"gemini_3_flash", "gemini_3_pro"}:
         return GeminiMitigationClient(resolved)
+    if model in LOCAL_RUNNER_ALIASES:
+        return LocalSharedRunnerMitigationClient(LOCAL_RUNNER_ALIASES[model], model_name)
     raise ValueError(f"Unsupported mitigation model: {model}")
-
