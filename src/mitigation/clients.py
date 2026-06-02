@@ -24,6 +24,10 @@ LOCAL_RUNNER_ALIASES = {
     "Qwen3_omni_thinking": "Qwen3_omni_thinking",
     "kimi_audio": "Kimi_audio",
     "Kimi_audio": "Kimi_audio",
+    "mimo_audio": "Mimo_audio",
+    "Mimo_audio": "Mimo_audio",
+    "mimo_audio_thinking": "Mimo_audio_thinking",
+    "Mimo_audio_thinking": "Mimo_audio_thinking",
 }
 
 SUPPORTED_MITIGATION_MODELS = sorted([*MODEL_DEFAULTS.keys(), *LOCAL_RUNNER_ALIASES.keys()])
@@ -260,11 +264,26 @@ class LocalSharedRunnerMitigationClient(MitigationClient):
         response, _ = self.runner.run_model(self.model, messages)
         return str(response).strip()
 
+    def _mimo_prompt(self, system_prompt: str, user_text: str) -> str:
+        parts = [part for part in (system_prompt.strip(), user_text.strip()) if part]
+        return "\n\n".join(parts)
+
+    def _mimo_chat(self, system_prompt: str, user_text: str, audio_path: Optional[Path] = None) -> str:
+        prompt = self._mimo_prompt(system_prompt, user_text)
+        thinking = self.runner_name.endswith("_thinking")
+        if audio_path is not None:
+            if not audio_path.exists():
+                raise FileNotFoundError(f"Audio file not found: {audio_path}")
+            return str(self.model.audio_understanding_sft(str(audio_path), prompt, thinking=thinking)).strip()
+        return str(self.model.text_dialogue_sft(prompt, thinking=thinking)).strip()
+
     def audio_chat(self, system_prompt: str, user_text: str, audio_path: Path) -> str:
         if self.runner_name.startswith("Qwen3_omni"):
             return self._qwen_chat(system_prompt, user_text, audio_path)
         if self.runner_name == "Kimi_audio":
             return self._kimi_chat(system_prompt, user_text, audio_path)
+        if self.runner_name.startswith("Mimo_audio"):
+            return self._mimo_chat(system_prompt, user_text, audio_path)
         raise ValueError(f"Local mitigation audio_chat is not implemented for {self.runner_name}")
 
     def text_chat(self, system_prompt: str, user_text: str) -> str:
@@ -272,6 +291,8 @@ class LocalSharedRunnerMitigationClient(MitigationClient):
             return self._qwen_chat(system_prompt, user_text)
         if self.runner_name == "Kimi_audio":
             return self._kimi_chat(system_prompt, user_text)
+        if self.runner_name.startswith("Mimo_audio"):
+            return self._mimo_chat(system_prompt, user_text)
         raise ValueError(f"Local mitigation text_chat is not implemented for {self.runner_name}")
 
 
