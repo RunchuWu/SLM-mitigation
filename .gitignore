@@ -224,3 +224,11 @@ Original_eval
 main.pdf
 README copy.md
 README_deprecated.md
+
+# Local/private server configuration
+SERVER_CONTEXT.md
+SERVER_CONTEXT.local.md
+server-
+server-*
+scripts/remote_kimi_smoke.sh
+scripts/*.local.sh

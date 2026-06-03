@@ -17,20 +17,20 @@ MODEL_DEFAULTS = {
     "gemini_3_pro": "gemini-3-pro-preview",
 }
 
+KIMI_AUDIO_ALIASES = {"kimi_audio", "Kimi_audio"}
+
 LOCAL_RUNNER_ALIASES = {
     "qwen3_omni": "Qwen3_omni",
     "Qwen3_omni": "Qwen3_omni",
     "qwen3_omni_thinking": "Qwen3_omni_thinking",
     "Qwen3_omni_thinking": "Qwen3_omni_thinking",
-    "kimi_audio": "Kimi_audio",
-    "Kimi_audio": "Kimi_audio",
     "mimo_audio": "Mimo_audio",
     "Mimo_audio": "Mimo_audio",
     "mimo_audio_thinking": "Mimo_audio_thinking",
     "Mimo_audio_thinking": "Mimo_audio_thinking",
 }
 
-SUPPORTED_MITIGATION_MODELS = sorted([*MODEL_DEFAULTS.keys(), *LOCAL_RUNNER_ALIASES.keys()])
+SUPPORTED_MITIGATION_MODELS = sorted([*MODEL_DEFAULTS.keys(), *KIMI_AUDIO_ALIASES, *LOCAL_RUNNER_ALIASES.keys()])
 
 
 def is_placeholder_key(value: str) -> bool:
@@ -200,6 +200,49 @@ class GeminiMitigationClient(MitigationClient):
         return "" if not getattr(response, "text", None) else str(response.text).strip()
 
 
+class KimiAudioMitigationClient(MitigationClient):
+    """Adapter for the official Kimi-Audio inference API."""
+
+    def __init__(self, model_path: Optional[str] = None) -> None:
+        from .kimi_compat import load_official_kimi_audio, resolve_kimi_model_path
+
+        self.model_path = resolve_kimi_model_path(model_path)
+        self.model = load_official_kimi_audio(self.model_path)
+
+    @staticmethod
+    def _messages(system_prompt: str, user_text: str, audio_path: Optional[Path] = None) -> List[Dict[str, str]]:
+        messages: List[Dict[str, str]] = []
+        if system_prompt:
+            messages.append({"role": "user", "message_type": "text", "content": system_prompt})
+        if user_text:
+            messages.append({"role": "user", "message_type": "text", "content": user_text})
+        if audio_path is not None:
+            if not audio_path.exists():
+                raise FileNotFoundError(f"Audio file not found: {audio_path}")
+            messages.append({"role": "user", "message_type": "audio", "content": str(audio_path)})
+        return messages
+
+    def _generate_text(self, messages: List[Dict[str, str]]) -> str:
+        sampling_params = {
+            "audio_temperature": 0.8,
+            "audio_top_k": 10,
+            "text_temperature": 0.0,
+            "text_top_k": 5,
+            "audio_repetition_penalty": 1.0,
+            "audio_repetition_window_size": 64,
+            "text_repetition_penalty": 1.0,
+            "text_repetition_window_size": 16,
+        }
+        _, text_output = self.model.generate(messages, **sampling_params, output_type="text")
+        return str(text_output).strip()
+
+    def audio_chat(self, system_prompt: str, user_text: str, audio_path: Path) -> str:
+        return self._generate_text(self._messages(system_prompt, user_text, audio_path))
+
+    def text_chat(self, system_prompt: str, user_text: str) -> str:
+        return self._generate_text(self._messages(system_prompt, user_text))
+
+
 class LocalSharedRunnerMitigationClient(MitigationClient):
     """Adapter for local VoxSafeBench-style model runners.
 
@@ -302,6 +345,8 @@ def create_client(model: str, model_name: Optional[str] = None) -> MitigationCli
         return OpenAIMitigationClient(resolved)
     if model in {"gemini_3_flash", "gemini_3_pro"}:
         return GeminiMitigationClient(resolved)
+    if model in KIMI_AUDIO_ALIASES:
+        return KimiAudioMitigationClient(model_name)
     if model in LOCAL_RUNNER_ALIASES:
         return LocalSharedRunnerMitigationClient(LOCAL_RUNNER_ALIASES[model], model_name)
     raise ValueError(f"Unsupported mitigation model: {model}")

@@ -12,7 +12,6 @@ try:
 except ImportError:
     from task_configs import TASK_CONFIGS, TASK_IDS, TaskConfig
 
-import torch
 import warnings
 import numpy as np
 
@@ -20,13 +19,6 @@ warnings.filterwarnings('ignore')
 warnings.filterwarnings('ignore', category=DeprecationWarning)
 warnings.filterwarnings('ignore', category=FutureWarning)
 warnings.filterwarnings('ignore', category=UserWarning)
-
-import sys
-# Add project root and Kimi_audio model warehouse to sys.path
-sys.path.append(str(Path(__file__).resolve().parents[2]))
-sys.path.append(str(Path(__file__).resolve().parents[2] / "utils"))
-sys.path.append(str(Path(__file__).resolve().parents[2] / "model_warehouse" / "Kimi_audio"))
-from utils.kimia_infer.api.kimia import KimiAudio
 
 MODEL_NAME_DEFAULT = "Kimi_audio"
 SAVE_INTERVAL_DEFAULT = 10
@@ -45,15 +37,7 @@ def results_root() -> Path:
     return repo_root() / "results" / "Kimi_audio"
 
 
-MODEL_PATH = "model_warehouse/Kimi_audio"
-
-
-import sys
-# Add project root, utils, and Kimi_audio model warehouse to sys.path
-sys.path.append(str(repo_root()))
-sys.path.append(str(repo_root() / "utils"))
-sys.path.append(str(repo_root() / "model_warehouse" / "Kimi_audio"))
-from utils.kimia_infer.api.kimia import KimiAudio
+MODEL_PATH = os.getenv("KIMI_AUDIO_MODEL_PATH", "")
 
 _MODEL_CACHE = None
 
@@ -61,11 +45,10 @@ def _load_model_processor():
     global _MODEL_CACHE
     if _MODEL_CACHE is not None:
         return _MODEL_CACHE
-        
-    model = KimiAudio(
-        model_path=str(repo_root() / MODEL_PATH),
-        load_detokenizer=True,
-    )
+
+    from src.mitigation.kimi_compat import load_official_kimi_audio
+
+    model = load_official_kimi_audio(MODEL_PATH or None)
 
     processor = None
     _MODEL_CACHE = (model, processor)
