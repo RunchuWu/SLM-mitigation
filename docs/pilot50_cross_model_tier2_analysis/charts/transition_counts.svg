@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="950" viewBox="0 0 1440 950">
+<rect width="100%" height="100%" fill="#FFFFFF"/>
+<text x="720.0" y="36" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#172033">Sample-Level Transition Counts</text>
+<text x="720.0" y="62" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#526070">Counts out of 50 samples per model/subgroup.</text>
+<text x="20" y="109" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#172033">Gemini 3 Flash / Child voice</text>
+<text x="20" y="125" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="400" fill="#526070">baseline to caption verifier success</text>
+<rect x="500" y="101" width="148.8" height="20" rx="4" fill="#2A9D8F"/>
+<text x="672.8" y="116" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#2A9D8F">12</text>
+<text x="20" y="147" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#172033">Gemini 3 Flash / Child voice</text>
+<text x="20" y="163" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="400" fill="#526070">caption to caption verifier regression</text>
+<rect x="500" y="139" width="37.2" height="20" rx="4" fill="#D76A5E"/>
+<text x="561.2" y="154" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#D76A5E">3</text>
+<text x="20" y="185" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#172033">Gemini 3 Flash / Child voice</text>
+<text x="20" y="201" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="400" fill="#526070">persistent failure</text>
+<rect x="500" y="177" width="86.8" height="20" rx="4" fill="#6B7280"/>
+<text x="610.8" y="192" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#6B7280">7</text>
+<text x="20" y="223" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#172033">Gemini 3 Flash / Child presence</text>
+<text x="20" y="239" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="400" fill="#526070">baseline to caption verifier success</text>
+<rect x="500" y="215" width="37.2" height="20" rx="4" fill="#2A9D8F"/>
+<text x="561.2" y="230" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#2A9D8F">3</text>
+<text x="20" y="261" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#172033">Gemini 3 Flash / Child presence</text>
+<text x="20" y="277" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="400" fill="#526070">caption to caption verifier regression</text>
+<rect x="500" y="253" width="12.4" height="20" rx="4" fill="#D76A5E"/>
+<text x="536.4" y="268" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#D76A5E">1</text>
+<text x="20" y="299" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#172033">Gemini 3 Flash / Child presence</text>
+<text x="20" y="315" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="400" fill="#526070">persistent failure</text>
+<rect x="500" y="291" width="483.6" height="20" rx="4" fill="#6B7280"/>
+<text x="1007.6" y="306" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#6B7280">39</text>
+<text x="20" y="337" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#172033">Gemini 3 Flash / Impaired capacity</text>
+<text x="20" y="353" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="400" fill="#526070">baseline to caption verifier success</text>
+<rect x="500" y="329" width="359.6" height="20" rx="4" fill="#2A9D8F"/>
+<text x="883.6" y="344" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#2A9D8F">29</text>
+<text x="20" y="375" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#172033">Gemini 3 Flash / Impaired capacity</text>
+<text x="20" y="391" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="400" fill="#526070">caption to caption verifier regression</text>
+<rect x="500" y="367" width="24.8" height="20" rx="4" fill="#D76A5E"/>
+<text x="548.8" y="382" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#D76A5E">2</text>
+<text x="20" y="413" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#172033">Gemini 3 Flash / Impaired capacity</text>
+<text x="20" y="429" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="400" fill="#526070">persistent failure</text>
+<rect x="500" y="405" width="37.2" height="20" rx="4" fill="#6B7280"/>
+<text x="561.2" y="420" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#6B7280">3</text>
+<text x="20" y="451" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#172033">Gemini 3 Flash / Audio-conditioned privacy</text>
+<text x="20" y="467" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="400" fill="#526070">baseline to caption verifier success</text>
+<rect x="500" y="443" width="347.2" height="20" rx="4" fill="#2A9D8F"/>
+<text x="871.2" y="458" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#2A9D8F">28</text>
+<text x="20" y="489" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#172033">Gemini 3 Flash / Audio-conditioned privacy</text>
+<text x="20" y="505" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="400" fill="#526070">caption to caption verifier regression</text>
+<rect x="500" y="481" width="37.2" height="20" rx="4" fill="#D76A5E"/>
+<text x="561.2" y="496" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#D76A5E">3</text>
+<text x="20" y="527" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#172033">Gemini 3 Flash / Audio-conditioned privacy</text>
+<text x="20" y="543" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="400" fill="#526070">persistent failure</text>
+<rect x="500" y="519" width="74.4" height="20" rx="4" fill="#6B7280"/>
+<text x="598.4" y="534" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#6B7280">6</text>
+<text x="20" y="565" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#172033">Kimi-Audio 7B / Child voice</text>
+<text x="20" y="581" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="400" fill="#526070">baseline to caption verifier success</text>
+<rect x="500" y="557" width="186.0" height="20" rx="4" fill="#2A9D8F"/>
+<text x="710.0" y="572" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#2A9D8F">15</text>
+<text x="20" y="603" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#172033">Kimi-Audio 7B / Child voice</text>
+<text x="20" y="619" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="400" fill="#526070">persistent failure</text>
+<rect x="500" y="595" width="434.0" height="20" rx="4" fill="#6B7280"/>
+<text x="958.0" y="610" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#6B7280">35</text>
+<text x="20" y="641" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#172033">Kimi-Audio 7B / Child presence</text>
+<text x="20" y="657" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="400" fill="#526070">persistent failure</text>
+<rect x="500" y="633" width="595.2" height="20" rx="4" fill="#6B7280"/>
+<text x="1119.2" y="648" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#6B7280">48</text>
+<text x="20" y="679" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#172033">Kimi-Audio 7B / Impaired capacity</text>
+<text x="20" y="695" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="400" fill="#526070">baseline to caption verifier success</text>
+<rect x="500" y="671" width="198.4" height="20" rx="4" fill="#2A9D8F"/>
+<text x="722.4" y="686" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#2A9D8F">16</text>
+<text x="20" y="717" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#172033">Kimi-Audio 7B / Impaired capacity</text>
+<text x="20" y="733" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="400" fill="#526070">caption to caption verifier regression</text>
+<rect x="500" y="709" width="49.6" height="20" rx="4" fill="#D76A5E"/>
+<text x="573.6" y="724" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#D76A5E">4</text>
+<text x="20" y="755" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#172033">Kimi-Audio 7B / Impaired capacity</text>
+<text x="20" y="771" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="400" fill="#526070">persistent failure</text>
+<rect x="500" y="747" width="285.2" height="20" rx="4" fill="#6B7280"/>
+<text x="809.2" y="762" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#6B7280">23</text>
+<text x="20" y="793" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#172033">Kimi-Audio 7B / Audio-conditioned privacy</text>
+<text x="20" y="809" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="400" fill="#526070">baseline to caption verifier success</text>
+<rect x="500" y="785" width="285.2" height="20" rx="4" fill="#2A9D8F"/>
+<text x="809.2" y="800" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#2A9D8F">23</text>
+<text x="20" y="831" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#172033">Kimi-Audio 7B / Audio-conditioned privacy</text>
+<text x="20" y="847" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="400" fill="#526070">persistent failure</text>
+<rect x="500" y="823" width="322.4" height="20" rx="4" fill="#6B7280"/>
+<text x="846.4" y="838" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#6B7280">26</text>
+</svg>

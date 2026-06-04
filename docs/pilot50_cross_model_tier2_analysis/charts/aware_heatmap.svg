@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1350" height="496" viewBox="0 0 1350 496">
+<rect width="100%" height="100%" fill="#FFFFFF"/>
+<text x="675.0" y="36" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#172033">Pilot50 Aware % Heatmap</text>
+<text x="675.0" y="62" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#526070">Aware % = (WAR + RtA) / non-SKIP</text>
+<rect x="270" y="82" width="502" height="28" rx="7" fill="#EEF2F7" stroke="#D0D7DE"/>
+<text x="521.0" y="101" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#172033">Gemini 3 Flash</text>
+<rect x="780" y="82" width="502" height="28" rx="7" fill="#EEF2F7" stroke="#D0D7DE"/>
+<text x="1031.0" y="101" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#172033">Kimi-Audio 7B</text>
+<rect x="270" y="116" width="162" height="22" rx="6" fill="#FAFBFC" stroke="#D0D7DE"/>
+<text x="351.0" y="132" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#344054">Baseline</text>
+<rect x="440" y="116" width="162" height="22" rx="6" fill="#FAFBFC" stroke="#D0D7DE"/>
+<text x="521.0" y="132" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#344054">Caption</text>
+<rect x="610" y="116" width="162" height="22" rx="6" fill="#FAFBFC" stroke="#D0D7DE"/>
+<text x="691.0" y="132" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#344054">Caption + verifier</text>
+<rect x="780" y="116" width="162" height="22" rx="6" fill="#FAFBFC" stroke="#D0D7DE"/>
+<text x="861.0" y="132" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#344054">Baseline</text>
+<rect x="950" y="116" width="162" height="22" rx="6" fill="#FAFBFC" stroke="#D0D7DE"/>
+<text x="1031.0" y="132" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#344054">Caption</text>
+<rect x="1120" y="116" width="162" height="22" rx="6" fill="#FAFBFC" stroke="#D0D7DE"/>
+<text x="1201.0" y="132" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#344054">Caption + verifier</text>
+<text x="20" y="184" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#172033">Child voice</text>
+<rect x="270" y="145" width="164" height="58" rx="6" fill="#F4EDC9" stroke="#D0D7DE"/>
+<text x="352.0" y="182" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#172033">58.0%</text>
+<rect x="440" y="145" width="164" height="58" rx="6" fill="#BFE5D9" stroke="#D0D7DE"/>
+<text x="522.0" y="182" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#172033">74.0%</text>
+<rect x="610" y="145" width="164" height="58" rx="6" fill="#BFE5D9" stroke="#D0D7DE"/>
+<text x="692.0" y="182" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#172033">79.6%</text>
+<rect x="780" y="145" width="164" height="58" rx="6" fill="#F4B7A9" stroke="#D0D7DE"/>
+<text x="862.0" y="182" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#172033">0.0%</text>
+<rect x="950" y="145" width="164" height="58" rx="6" fill="#F8D8B6" stroke="#D0D7DE"/>
+<text x="1032.0" y="182" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#172033">22.2%</text>
+<rect x="1120" y="145" width="164" height="58" rx="6" fill="#F8D8B6" stroke="#D0D7DE"/>
+<text x="1202.0" y="182" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#172033">37.5%</text>
+<text x="20" y="248" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#172033">Child presence</text>
+<rect x="270" y="209" width="164" height="58" rx="6" fill="#F4B7A9" stroke="#D0D7DE"/>
+<text x="352.0" y="246" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#172033">15.9%</text>
+<rect x="440" y="209" width="164" height="58" rx="6" fill="#F4B7A9" stroke="#D0D7DE"/>
+<text x="522.0" y="246" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#172033">11.4%</text>
+<rect x="610" y="209" width="164" height="58" rx="6" fill="#F4B7A9" stroke="#D0D7DE"/>
+<text x="692.0" y="246" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#172033">15.8%</text>
+<rect x="780" y="209" width="164" height="58" rx="6" fill="#F4B7A9" stroke="#D0D7DE"/>
+<text x="862.0" y="246" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#172033">10.0%</text>
+<rect x="950" y="209" width="164" height="58" rx="6" fill="#F4B7A9" stroke="#D0D7DE"/>
+<text x="1032.0" y="246" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#172033">0.0%</text>
+<rect x="1120" y="209" width="164" height="58" rx="6" fill="#F4B7A9" stroke="#D0D7DE"/>
+<text x="1202.0" y="246" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#172033">0.0%</text>
+<text x="20" y="312" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#172033">Impaired capacity</text>
+<rect x="270" y="273" width="164" height="58" rx="6" fill="#F8D8B6" stroke="#D0D7DE"/>
+<text x="352.0" y="310" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#172033">33.3%</text>
+<rect x="440" y="273" width="164" height="58" rx="6" fill="#BFE5D9" stroke="#D0D7DE"/>
+<text x="522.0" y="310" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#172033">72.9%</text>
+<rect x="610" y="273" width="164" height="58" rx="6" fill="#69BFAE" stroke="#D0D7DE"/>
+<text x="692.0" y="310" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#172033">91.8%</text>
+<rect x="780" y="273" width="164" height="58" rx="6" fill="#F4B7A9" stroke="#D0D7DE"/>
+<text x="862.0" y="310" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#172033">18.8%</text>
+<rect x="950" y="273" width="164" height="58" rx="6" fill="#F4EDC9" stroke="#D0D7DE"/>
+<text x="1032.0" y="310" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#172033">50.0%</text>
+<rect x="1120" y="273" width="164" height="58" rx="6" fill="#F4EDC9" stroke="#D0D7DE"/>
+<text x="1202.0" y="310" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#172033">47.7%</text>
+<text x="20" y="376" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#172033">Audio-conditioned privacy</text>
+<rect x="270" y="337" width="164" height="58" rx="6" fill="#F8D8B6" stroke="#D0D7DE"/>
+<text x="352.0" y="374" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#172033">28.0%</text>
+<rect x="440" y="337" width="164" height="58" rx="6" fill="#F4EDC9" stroke="#D0D7DE"/>
+<text x="522.0" y="374" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#172033">42.0%</text>
+<rect x="610" y="337" width="164" height="58" rx="6" fill="#69BFAE" stroke="#D0D7DE"/>
+<text x="692.0" y="374" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#172033">80.0%</text>
+<rect x="780" y="337" width="164" height="58" rx="6" fill="#F4B7A9" stroke="#D0D7DE"/>
+<text x="862.0" y="374" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#172033">2.0%</text>
+<rect x="950" y="337" width="164" height="58" rx="6" fill="#F8D8B6" stroke="#D0D7DE"/>
+<text x="1032.0" y="374" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#172033">22.9%</text>
+<rect x="1120" y="337" width="164" height="58" rx="6" fill="#F4EDC9" stroke="#D0D7DE"/>
+<text x="1202.0" y="374" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#172033">46.9%</text>
+<text x="20" y="468" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#526070">Darker teal means higher awareness; orange/red means low awareness.</text>
+</svg>

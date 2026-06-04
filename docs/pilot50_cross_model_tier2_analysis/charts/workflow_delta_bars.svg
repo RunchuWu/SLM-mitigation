@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760">
+<rect width="100%" height="100%" fill="#FFFFFF"/>
+<text x="640.0" y="36" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#172033">Caption + Verifier vs Baseline: Aware % Delta</text>
+<text x="640.0" y="62" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#526070">Positive bars mean the mitigation improved awareness.</text>
+<line x1="680" y1="80" x2="680" y2="436" stroke="#172033" stroke-width="1.5"/>
+<line x1="380.0" y1="72" x2="380.0" y2="436" stroke="#E5E7EB"/>
+<text x="380.0" y="730" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#526070">-60</text>
+<line x1="480.0" y1="72" x2="480.0" y2="436" stroke="#E5E7EB"/>
+<text x="480.0" y="730" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#526070">-40</text>
+<line x1="580.0" y1="72" x2="580.0" y2="436" stroke="#E5E7EB"/>
+<text x="580.0" y="730" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#526070">-20</text>
+<line x1="680.0" y1="72" x2="680.0" y2="436" stroke="#E5E7EB"/>
+<text x="680.0" y="730" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#526070">0</text>
+<line x1="780.0" y1="72" x2="780.0" y2="436" stroke="#E5E7EB"/>
+<text x="780.0" y="730" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#526070">20</text>
+<line x1="880.0" y1="72" x2="880.0" y2="436" stroke="#E5E7EB"/>
+<text x="880.0" y="730" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#526070">40</text>
+<line x1="980.0" y1="72" x2="980.0" y2="436" stroke="#E5E7EB"/>
+<text x="980.0" y="730" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#526070">60</text>
+<line x1="1080.0" y1="72" x2="1080.0" y2="436" stroke="#E5E7EB"/>
+<text x="1080.0" y="730" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#526070">80</text>
+<text x="20" y="107" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#172033">Gemini 3 Flash / Child voice</text>
+<rect x="680" y="90" width="108.0" height="22" rx="4" fill="#2A9D8F"/>
+<text x="817.95" y="106" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#2A9D8F">+21.59</text>
+<text x="20" y="149" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#172033">Gemini 3 Flash / Child presence</text>
+<rect x="679.4" y="132" width="0.6" height="22" rx="4" fill="#D76A5E"/>
+<text x="649.4" y="148" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#D76A5E">-0.12</text>
+<text x="20" y="191" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#172033">Gemini 3 Flash / Impaired capacity</text>
+<rect x="680" y="174" width="292.6" height="22" rx="4" fill="#2A9D8F"/>
+<text x="1002.55" y="190" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#2A9D8F">+58.51</text>
+<text x="20" y="233" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#172033">Gemini 3 Flash / Audio-conditioned privacy</text>
+<rect x="680" y="216" width="260.0" height="22" rx="4" fill="#2A9D8F"/>
+<text x="970.0" y="232" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#2A9D8F">+52.00</text>
+<text x="20" y="275" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#172033">Kimi-Audio 7B / Child voice</text>
+<rect x="680" y="258" width="187.5" height="22" rx="4" fill="#2A9D8F"/>
+<text x="897.5" y="274" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#2A9D8F">+37.50</text>
+<text x="20" y="317" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#172033">Kimi-Audio 7B / Child presence</text>
+<rect x="630.0" y="300" width="50.0" height="22" rx="4" fill="#D76A5E"/>
+<text x="600.0" y="316" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#D76A5E">-10.00</text>
+<text x="20" y="359" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#172033">Kimi-Audio 7B / Impaired capacity</text>
+<rect x="680" y="342" width="144.9" height="22" rx="4" fill="#2A9D8F"/>
+<text x="854.9" y="358" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#2A9D8F">+28.98</text>
+<text x="20" y="401" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#172033">Kimi-Audio 7B / Audio-conditioned privacy</text>
+<rect x="680" y="384" width="224.5" height="22" rx="4" fill="#2A9D8F"/>
+<text x="934.5" y="400" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#2A9D8F">+44.90</text>
+<text x="20" y="730" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#526070">Units are percentage points.</text>
+</svg>
