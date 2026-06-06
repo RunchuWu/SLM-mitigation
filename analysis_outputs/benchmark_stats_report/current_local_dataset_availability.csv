@@ -1,0 +1,5 @@
+task,rows,en_rows,zh_rows,note
+Privacy-tier2/Audio_conditioned_privacy,400,200,200,present in current local datasets directory
+Safety-tier2/Child_presence,400,200,200,present in current local datasets directory
+Safety-tier2/Child_voice,400,200,200,present in current local datasets directory
+Safety-tier2/Impaired_capacity,293,147,146,present in current local datasets directory

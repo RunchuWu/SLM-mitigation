@@ -1,0 +1,20 @@
+pillar,tier,subgroup,rows,share_pct,description
+Safety,Tier 1,No_jailbreak / Explicit Harm & Toxicity,8708,33.02,Content-risk prompts without a jailbreak wrapper.
+Safety,Tier 1,Singleturn_jailbreak,2516,9.54,Single-turn attempts to bypass safety behavior.
+Safety,Tier 1,Multiturn_jailbreak,240,0.91,Multi-turn jailbreak conversations.
+Safety,Tier 1,Agentic_Action_Risks,873,3.31,Tool-use or agentic action risks.
+Safety,Tier 2,Child_voice,400,1.52,Foreground speaker sounds like a child.
+Safety,Tier 2,Emotion,160,0.61,Paralinguistic emotion changes the safe response.
+Safety,Tier 2,Impaired_capacity,293,1.11,"Speaker sounds impaired, intoxicated, or low-capacity."
+Safety,Tier 2,Child_presence,400,1.52,A child is present in the background audio.
+Safety,Tier 2,Symbolic_background,320,1.21,Background sound carries symbolic or unsafe meaning.
+Safety,Tier 2,Unsafe_ambient,400,1.52,Ambient audio implies unsafe surrounding conditions.
+Safety,Tier 2,Overlap_instruction_injection,552,2.09,Overlapping speech attempts instruction injection.
+Fairness,Tier 1,Fairness-tier1/test,2312,8.77,Content-centric fairness and bias evaluation.
+Fairness,Tier 2,Fairness-tier2/test,2050,7.77,Audio-conditioned fairness evaluation.
+Fairness,Tier 2,Bias_analysis,2218,8.41,Bias analysis under voice or speaker-conditioned settings.
+Privacy,Tier 1,Hard_privacy,800,3.03,Direct privacy-sensitive requests.
+Privacy,Tier 1,Soft_privacy,800,3.03,Softer privacy leakage or boundary cases.
+Privacy,Tier 2,Audio_conditioned_privacy,400,1.52,Privacy risk depends on background or audio context.
+Privacy,Tier 2,Interactional_privacy,586,2.22,Privacy leakage across interaction turns.
+Privacy,Tier 2,Inferential_privacy / HearSay,2345,8.89,Inferential privacy benchmark referenced through HearSay.

@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VoxSafeBench Data Composition Report</title>
+  <style>
+    body { margin: 0; background: #FCFCFD; color: #1F2430; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    main { max-width: 1080px; margin: 0 auto; padding: 44px 24px 72px; }
+    header, section { margin-bottom: 34px; }
+    h1 { font-size: 34px; line-height: 1.12; margin: 0; letter-spacing: 0; }
+    h2 { font-size: 22px; line-height: 1.2; margin: 0 0 12px; letter-spacing: 0; }
+    p, li { line-height: 1.6; font-size: 15.5px; }
+    .executive-summary-box { border: 1px solid #D7DBE7; background: #FFFFFF; border-radius: 8px; padding: 18px 22px; }
+    .executive-summary-box ul { margin: 0; padding-left: 20px; }
+    .executive-summary-box li + li { margin-top: 10px; }
+    .callout { border-left: 4px solid #F0986E; background: #F4F5F7; padding: 12px 16px; }
+    figure { margin: 18px 0 20px; }
+    figure img { width: 100%; max-width: 100%; height: auto; display: block; border: 1px solid #E6E8F0; border-radius: 8px; background: #FFFFFF; }
+    figcaption { color: #6F768A; font-size: 13px; margin-top: 8px; }
+    table { border-collapse: collapse; width: 100%; margin: 14px 0 20px; font-size: 13.5px; }
+    th, td { border-bottom: 1px solid #E6E8F0; padding: 9px 8px; text-align: left; vertical-align: top; }
+    th { color: #464C55; background: #F4F5F7; font-weight: 650; }
+    .note { color: #6F768A; font-size: 14px; }
+    .twocol { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    @media (max-width: 760px) { .twocol { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+<main data-report-audience="product stakeholders">
+  <header data-contract-section="title">
+    <h1>VoxSafeBench Data Composition Report</h1>
+    <p class="note">Focus: benchmark data composition only. Result-run summaries are intentionally excluded.</p>
+  </header>
+
+  <section class="executive-summary-box" data-contract-section="executive-summary">
+    <h2>Executive Summary</h2>
+    <ul>
+      <li><strong>The full benchmark accounting contains 26,373 instances across 19 top-level subgroup/task blocks.</strong> These top-level blocks contain finer internal categories and dimensions, which is why the benchmark is often described as having 20+ subgroups. The main Hugging Face release accounts for about 24,028 rows; adding Inferential Privacy / HearSay brings the full benchmark accounting to 26,373.</li>
+      <li><strong>The benchmark is organized by three pillars and two tiers.</strong> Safety is the largest pillar, while Tier 1 has 16,249 content-centric rows and Tier 2 has 10,124 audio-conditioned rows.</li>
+      <li><strong>Tier 1 asks whether the model handles risky content in the transcript; Tier 2 asks whether the model uses voice and acoustic context.</strong> Tier 2 includes child voice, child presence, impaired speech, emotion, ambient sounds, overlap injection, and audio-conditioned privacy.</li>
+    </ul>
+  </section>
+
+  <section data-contract-section="key-findings">
+    <h2>Data is first split into Safety, Fairness, and Privacy, then into Tier 1 and Tier 2</h2>
+    <p><strong>Safety dominates the benchmark volume, but all three pillars have both text/content-centric and audio-conditioned coverage.</strong> Tier 1 is larger overall because it includes high-volume content-risk and jailbreak data. Tier 2 is smaller but more specific to speech-language models because the correct response depends on who is speaking, how they speak, or what can be heard around them.</p>
+    <figure>
+      <img src="charts/pillar_tier_distribution.png" alt="Full benchmark distribution by pillar and tier">
+      <figcaption>Full benchmark row counts grouped by pillar and tier.</figcaption>
+    </figure>
+    <div class="twocol">
+      <div><table>
+<thead><tr>
+<th>Pillar</th>
+<th>Rows</th>
+<th>Share %</th>
+</tr></thead><tbody>
+<tr>
+<td>Fairness</td>
+<td>6580</td>
+<td>24.95</td>
+</tr>
+<tr>
+<td>Privacy</td>
+<td>4931</td>
+<td>18.70</td>
+</tr>
+<tr>
+<td>Safety</td>
+<td>14862</td>
+<td>56.35</td>
+</tr>
+</tbody></table></div>
+      <div><table>
+<thead><tr>
+<th>Tier</th>
+<th>Rows</th>
+<th>Share %</th>
+</tr></thead><tbody>
+<tr>
+<td>Tier 1</td>
+<td>16249</td>
+<td>61.61</td>
+</tr>
+<tr>
+<td>Tier 2</td>
+<td>10124</td>
+<td>38.39</td>
+</tr>
+</tbody></table></div>
+    </div>
+    <table>
+<thead><tr>
+<th>Pillar</th>
+<th>Tier</th>
+<th>Rows</th>
+<th>Share %</th>
+</tr></thead><tbody>
+<tr>
+<td>Fairness</td>
+<td>Tier 1</td>
+<td>2312</td>
+<td>8.77</td>
+</tr>
+<tr>
+<td>Fairness</td>
+<td>Tier 2</td>
+<td>4268</td>
+<td>16.18</td>
+</tr>
+<tr>
+<td>Privacy</td>
+<td>Tier 1</td>
+<td>1600</td>
+<td>6.07</td>
+</tr>
+<tr>
+<td>Privacy</td>
+<td>Tier 2</td>
+<td>3331</td>
+<td>12.63</td>
+</tr>
+<tr>
+<td>Safety</td>
+<td>Tier 1</td>
+<td>12337</td>
+<td>46.78</td>
+</tr>
+<tr>
+<td>Safety</td>
+<td>Tier 2</td>
+<td>2525</td>
+<td>9.57</td>
+</tr>
+</tbody></table>
+  </section>
+
+  <section data-contract-section="key-findings">
+    <h2>Subgroups are uneven by design because they test different risk surfaces</h2>
+    <p><strong>The biggest blocks are content-centric Safety and Fairness tasks; the audio-conditioned subgroups are smaller, targeted stress tests.</strong> That is expected: Tier 2 scenarios require controlled audio conditions, such as child voice, impaired speech, background children, or overlapping speech, so they are more granular and intentionally scenario-specific.</p>
+    <figure>
+      <img src="charts/subgroup_distribution.png" alt="Full benchmark rows by top-level subgroup">
+      <figcaption>Top-level subgroup/task counts. Some task blocks contain finer internal categories or dimensions.</figcaption>
+    </figure>
+    <table>
+<thead><tr>
+<th>Pillar</th>
+<th>Tier</th>
+<th>Subgroup / task</th>
+<th>Rows</th>
+<th>Share %</th>
+<th>Plain-language meaning</th>
+</tr></thead><tbody>
+<tr>
+<td>Fairness</td>
+<td>Tier 1</td>
+<td>Fairness-tier1/test</td>
+<td>2312</td>
+<td>8.77</td>
+<td>Content-centric fairness and bias evaluation.</td>
+</tr>
+<tr>
+<td>Fairness</td>
+<td>Tier 2</td>
+<td>Bias_analysis</td>
+<td>2218</td>
+<td>8.41</td>
+<td>Bias analysis under voice or speaker-conditioned settings.</td>
+</tr>
+<tr>
+<td>Fairness</td>
+<td>Tier 2</td>
+<td>Fairness-tier2/test</td>
+<td>2050</td>
+<td>7.77</td>
+<td>Audio-conditioned fairness evaluation.</td>
+</tr>
+<tr>
+<td>Privacy</td>
+<td>Tier 1</td>
+<td>Hard_privacy</td>
+<td>800</td>
+<td>3.03</td>
+<td>Direct privacy-sensitive requests.</td>
+</tr>
+<tr>
+<td>Privacy</td>
+<td>Tier 1</td>
+<td>Soft_privacy</td>
+<td>800</td>
+<td>3.03</td>
+<td>Softer privacy leakage or boundary cases.</td>
+</tr>
+<tr>
+<td>Privacy</td>
+<td>Tier 2</td>
+<td>Inferential_privacy / HearSay</td>
+<td>2345</td>
+<td>8.89</td>
+<td>Inferential privacy benchmark referenced through HearSay.</td>
+</tr>
+<tr>
+<td>Privacy</td>
+<td>Tier 2</td>
+<td>Interactional_privacy</td>
+<td>586</td>
+<td>2.22</td>
+<td>Privacy leakage across interaction turns.</td>
+</tr>
+<tr>
+<td>Privacy</td>
+<td>Tier 2</td>
+<td>Audio_conditioned_privacy</td>
+<td>400</td>
+<td>1.52</td>
+<td>Privacy risk depends on background or audio context.</td>
+</tr>
+<tr>
+<td>Safety</td>
+<td>Tier 1</td>
+<td>No_jailbreak / Explicit Harm &amp; Toxicity</td>
+<td>8708</td>
+<td>33.02</td>
+<td>Content-risk prompts without a jailbreak wrapper.</td>
+</tr>
+<tr>
+<td>Safety</td>
+<td>Tier 1</td>
+<td>Singleturn_jailbreak</td>
+<td>2516</td>
+<td>9.54</td>
+<td>Single-turn attempts to bypass safety behavior.</td>
+</tr>
+<tr>
+<td>Safety</td>
+<td>Tier 1</td>
+<td>Agentic_Action_Risks</td>
+<td>873</td>
+<td>3.31</td>
+<td>Tool-use or agentic action risks.</td>
+</tr>
+<tr>
+<td>Safety</td>
+<td>Tier 1</td>
+<td>Multiturn_jailbreak</td>
+<td>240</td>
+<td>0.91</td>
+<td>Multi-turn jailbreak conversations.</td>
+</tr>
+<tr>
+<td>Safety</td>
+<td>Tier 2</td>
+<td>Overlap_instruction_injection</td>
+<td>552</td>
+<td>2.09</td>
+<td>Overlapping speech attempts instruction injection.</td>
+</tr>
+<tr>
+<td>Safety</td>
+<td>Tier 2</td>
+<td>Child_voice</td>
+<td>400</td>
+<td>1.52</td>
+<td>Foreground speaker sounds like a child.</td>
+</tr>
+<tr>
+<td>Safety</td>
+<td>Tier 2</td>
+<td>Child_presence</td>
+<td>400</td>
+<td>1.52</td>
+<td>A child is present in the background audio.</td>
+</tr>
+<tr>
+<td>Safety</td>
+<td>Tier 2</td>
+<td>Unsafe_ambient</td>
+<td>400</td>
+<td>1.52</td>
+<td>Ambient audio implies unsafe surrounding conditions.</td>
+</tr>
+<tr>
+<td>Safety</td>
+<td>Tier 2</td>
+<td>Symbolic_background</td>
+<td>320</td>
+<td>1.21</td>
+<td>Background sound carries symbolic or unsafe meaning.</td>
+</tr>
+<tr>
+<td>Safety</td>
+<td>Tier 2</td>
+<td>Impaired_capacity</td>
+<td>293</td>
+<td>1.11</td>
+<td>Speaker sounds impaired, intoxicated, or low-capacity.</td>
+</tr>
+<tr>
+<td>Safety</td>
+<td>Tier 2</td>
+<td>Emotion</td>
+<td>160</td>
+<td>0.61</td>
+<td>Paralinguistic emotion changes the safe response.</td>
+</tr>
+</tbody></table>
+  </section>
+
+  <section data-contract-section="key-findings">
+    <h2>Current local checkout is only a subset of the full benchmark</h2>
+    <p><strong>The local <code>datasets/</code> directory currently contains four Tier 2 subgroups, not the full 20K+ benchmark.</strong> This section is included only to avoid confusing local files with the complete benchmark accounting above. It is not a pilot-test or mitigation-result summary.</p>
+    <table>
+<thead><tr>
+<th>Local task</th>
+<th>Rows</th>
+<th>EN</th>
+<th>ZH</th>
+<th>Note</th>
+</tr></thead><tbody>
+<tr>
+<td>Privacy-tier2/Audio_conditioned_privacy</td>
+<td>400</td>
+<td>200</td>
+<td>200</td>
+<td>present in current local datasets directory</td>
+</tr>
+<tr>
+<td>Safety-tier2/Child_presence</td>
+<td>400</td>
+<td>200</td>
+<td>200</td>
+<td>present in current local datasets directory</td>
+</tr>
+<tr>
+<td>Safety-tier2/Child_voice</td>
+<td>400</td>
+<td>200</td>
+<td>200</td>
+<td>present in current local datasets directory</td>
+</tr>
+<tr>
+<td>Safety-tier2/Impaired_capacity</td>
+<td>293</td>
+<td>147</td>
+<td>146</td>
+<td>present in current local datasets directory</td>
+</tr>
+</tbody></table>
+  </section>
+
+  <section data-contract-section="recommended-next-steps">
+    <h2>Recommended Next Steps</h2>
+    <ol>
+      <li>Use the full subgroup distribution table as the source for paper/report dataset-composition language.</li>
+      <li>When reporting model results, always state whether results cover the full benchmark, the local Tier 2 subset, or a smaller smoke/pilot subset.</li>
+      <li>If you want subgroup-level result analysis later, generate that as a separate results report so it does not mix with dataset composition.</li>
+    </ol>
+  </section>
+
+  <section data-contract-section="caveats-and-assumptions">
+    <h2>Caveats and Assumptions</h2>
+    <div class="callout">
+      <p>This report treats the table in the script as the canonical full-benchmark composition. Inferential Privacy / HearSay is included in the full benchmark accounting but is separate from the current local <code>datasets/</code> checkout.</p>
+    </div>
+  </section>
+</main>
+</body>
+</html>
