@@ -1,0 +1,20 @@
+{
+  "experiment_root": "remote_results/qwen3_omni_full_core3_v1",
+  "evaluator_outputs": "remote_results/qwen3_omni_full_core3_v1/evaluator_outputs",
+  "output_dir": "experiments/qwen3_omni_full_core3_v1/analysis/analytics",
+  "files": {
+    "metrics_long": "experiments/qwen3_omni_full_core3_v1/analysis/analytics/qwen_metrics_long.csv",
+    "task_matrix": "experiments/qwen3_omni_full_core3_v1/analysis/analytics/qwen_task_matrix.csv",
+    "subgroup_matrix": "experiments/qwen3_omni_full_core3_v1/analysis/analytics/qwen_subgroup_matrix.csv",
+    "metric_family_matrix": "experiments/qwen3_omni_full_core3_v1/analysis/analytics/qwen_metric_family_matrix.csv",
+    "markdown": "experiments/qwen3_omni_full_core3_v1/analysis/analytics/qwen_analytics_tables.md"
+  },
+  "counts": {
+    "source_result_files": 30,
+    "overall_metric_rows": 30,
+    "long_metric_rows": 174,
+    "task_matrix_rows": 10,
+    "subgroup_matrix_rows": 4,
+    "metric_family_rows": 3
+  }
+}

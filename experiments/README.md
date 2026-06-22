@@ -23,6 +23,12 @@ For the current pilot, use:
 experiments/pilot50_gemini3_flash_tier2_v1/
 ```
 
+For the current Qwen3-Omni full-data analytics snapshot, use:
+
+```text
+experiments/qwen3_omni_full_core3_v1/
+```
+
 Typical flow:
 
 1. Run baseline and mitigation workflows into `raw_outputs/`.

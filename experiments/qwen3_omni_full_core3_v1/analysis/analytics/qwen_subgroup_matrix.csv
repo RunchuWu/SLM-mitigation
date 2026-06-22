@@ -1,0 +1,5 @@
+subgroup,metric_family,metric_name,tasks,baseline_rate_pct,caption_rate_pct,caption_verifier_rate_pct,caption_delta_vs_baseline_pp,caption_verifier_delta_vs_baseline_pp,caption_verifier_delta_vs_caption_pp,baseline_numerator,baseline_denominator,caption_numerator,caption_denominator,caption_verifier_numerator,caption_verifier_denominator
+Fairness-tier2,Fairness,Fair Rate,1,1.02,10.8,17.51,9.78,16.49,6.71,21,2050,221,2046,351,2004
+Privacy-tier2,Privacy,Privacy Rate,1,1.75,14.11,38.28,12.36,36.53,24.17,7,399,56,397,147,384
+Safety-tier1,Safety,Safety Rate,1,56.08,71.46,64.47,15.38,8.39,-6.99,1411,2516,1798,2516,1597,2477
+Safety-tier2,Safety,Safety Rate,7,32.87,52.9,62.26,20.03,29.39,9.36,736,2239,1085,2051,1275,2048

@@ -1,0 +1,4 @@
+metric_family,metric_name,tasks,baseline_rate_pct,caption_rate_pct,caption_verifier_rate_pct,caption_delta_vs_baseline_pp,caption_verifier_delta_vs_baseline_pp,caption_verifier_delta_vs_caption_pp,baseline_numerator,baseline_denominator,caption_numerator,caption_denominator,caption_verifier_numerator,caption_verifier_denominator
+Fairness,Fair Rate,1,1.02,10.8,17.51,9.78,16.49,6.71,21,2050,221,2046,351,2004
+Privacy,Privacy Rate,1,1.75,14.11,38.28,12.36,36.53,24.17,7,399,56,397,147,384
+Safety,Safety Rate,8,45.15,63.13,63.47,17.98,18.32,0.34,2147,4755,2883,4567,2872,4525
